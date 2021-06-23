@@ -6,21 +6,26 @@
 
 
 *{
-
+    font-size: 16px;
+    
 }
 
 body{
     background-color: var(--background-color);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-family: 'Work Sans',Arial, Helvetica, sans-serif;
+    line-height: 2;
     padding: 0;
     margin: 0;
 
 }
+::-moz-selection {  background-color: var(--highlight-color);  }
+
+::selection {   background-color: var(--highlight-color);  }
 
 a{
     color: var(--primary-color);
     text-decoration: none;
+    padding: 10px;
     transition: color 0.2s ease-in-out;
 }
 
@@ -28,8 +33,17 @@ a:hover{
     color: var(--highlight-color);
 }
 
+h2, h3{
+    font-family: 'Barlow Condensed';
+}
+
 h2{
+    font-size: 2.5rem;
     text-align: center;
+}
+
+h3{
+    font-size: 1.5rem;
 }
 
 
@@ -60,6 +74,7 @@ h2{
 }
 
 .menu a{
+    font-family: 'Barlow Condensed';
     font-size: 1.7em;
 }
 
@@ -69,20 +84,6 @@ h2{
     animation-timing-function: ease-in-out;
 }
 
-
-.division{
-    background-color: #ff0000;
-    
-    
-    position: relative;
-    top: -60px;
-    
-    clip-path: polygon(0% 40%, 100% 0%, 100% 60%, 0% 100%);
-    
-    animation-name: opening-hero;
-    animation-duration: 2s;
-    animation-timing-function: ease-in-out;
-}
 
 .main-video{
     margin-top: 250px;
@@ -102,61 +103,180 @@ h2{
     width: 100%;
 }
 
+.about{
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 150px;
+}
+
+
 .work{
     margin-top: 250px;
     transform-origin: 0 0;
     transform: skewY(-10deg);
-    background-color: red;
 }
 .grid{
     display: grid; 
-    grid-template-columns: 1fr 1fr 1fr 1fr; 
-    grid-template-rows: 1fr 1fr 1fr 1fr; 
+    grid-template-columns: 1fr 1fr 1fr; 
     gap: 0px 0px; 
 }
 
-.item{
+.grid .item{
     overflow: hidden;
+    height: 300px;
 }
 
-.item .image{
+.grid .item .image{
     width: 100%;
     height: 100%;
     overflow: hidden;
 }
 
-.item img{
+.grid .item img{
     width: 100%;
-    transform: skewY(10deg) scale(1.5,1.5);
-    transition: all 0.3s;
+    transform: skewY(10deg) scale(1.4,1.4);
+    transition: all 0.075s;    
 }
 
-.item:hover img{
-    transform: skewY(10deg) scale(1.5,1.5);
+.grid .item:hover img{
+    transform: skewY(10deg) scale(1.6,1.6);
 }
-.item:hover .bg-hover{
+.grid .item .bg-hover{
+    transform: skewY(10deg) scale(1,1);
+    height: 400px;
+}
+.grid .item:hover .bg-hover{
     width: 100%;
     height: 100%;
     overflow: hidden;
-    
     opacity: 1;
 }
 
-.item .bg-hover{
-    background-color: rgba(0,0,0,0.5);
+.grid .item .bg-hover{
+    background-color: rgba(0,0,0,0.7);
     width: 100%;
-    height: 100%;
+    height: 400px;
     display: grid;
     position: relative;
     z-index: 2;
-    top:-100%;
+    top:-150%;
     opacity: 0;
-    align-items: center center;
-    transition: opacity 0.5s;
+    transition: opacity 0.3s ease-in-out;
     transform: skewY(10deg) scale(1.5,1.5);
     justify-items: center;
     align-items: center;
+    text-align: center;
 }
+
+.grid .item:hover .bg-hover .info{
+    animation-name: bounce;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+}
+
+.grid .item .bg-hover .title{
+    color: white;
+}
+.grid .item .bg-hover .customer{
+    color: var(--background-color);
+}
+
+#details-container{
+    background-color: var(--background-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    display: none;
+    overflow: auto;
+}
+
+#details-container .nav-bar{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.item-hide{
+    display: none;
+}
+.item-show{
+    display: block;
+}
+
+#details-container .items .item .main-image img{
+    width: 100%;
+}
+
+#details-container .items .item .title{
+    text-align: center;
+}
+
+#details-container .items .item .description{
+    
+}
+
+
+
+#screen{
+    background-color: var(--highlight-color);
+    position: fixed;
+    z-index: 100;
+    top:-280px;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    transform: skewY(-10deg);
+    transition: all 0.4s;
+    animation-timing-function: linear;
+    animation-duration: 2s;
+}
+
+.contact{
+    background-color: #000;
+    padding-top: 150px;
+    color: white;
+    transform: skewY(-10deg);
+}
+
+.contact .contact-container{
+    color: var(--background-color);
+    transform: skewY(10deg);
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.contact .contact-container .columns div{
+    width: 33%;
+}
+
+
+.contact .contact-container h3{
+    color: white;
+}
+
+.contact .contact-container .emails{
+    text-align: right;
+}
+.contact .contact-container .social{
+    text-align: center;
+}
+.footer{
+    background-color: black;
+    height: 450px;
+    margin-top: -170px;
+}
+
+.columns{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+
 
 @keyframes opening-hero{
     0%{
@@ -167,6 +287,20 @@ h2{
         clip-path: polygon(0% 40%, 100% 0%, 100% 60%, 0% 100%);
     }
 }
+@keyframes fade-in{
+    0%{
+        height: 0vh;
+    }
+
+    50%{
+        height: 150vh;
+    }
+
+    100%{
+        height: 0vh;
+    }
+
+}
 
 @keyframes opening-logo{
     0%{
@@ -176,6 +310,12 @@ h2{
     100%{
         transform: scale(1);
     }
+}
+
+@keyframes bounce{
+    0% {transform: translateY(500px);}
+    80% {transform: translateY(-30px);}
+    100% {transform: translateY(0);} 
 }
 
 @media (max-width: 1280px) {
@@ -198,6 +338,15 @@ h2{
         grid-template-rows: 1fr 1fr 1fr 1fr; 
         gap: 0px 0px; 
     }
+
+    .grid .item{
+        height: 200px;
+    }
+
+    .grid .item .bg-hover{
+        top: -150%;
+        height: 100%;
+    }
 }
 
 @media (max-width: 800px) {
@@ -211,17 +360,20 @@ h2{
 
     .grid{
         display: grid; 
-        grid-template-columns: 1fr 1fr 1fr; 
-        grid-template-rows: 1fr 1fr 1fr 1fr; 
+        grid-template-columns: 1fr 1fr; 
         gap: 0px 0px; 
+    }
+
+    .grid .item{
+        height: 200px;
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 540px) {
 
     .grid{
         display: grid; 
-        grid-template-columns: 1fr 1fr; 
+        grid-template-columns: 1fr; 
         gap: 0px 0px; 
     }
 }
