@@ -47,10 +47,15 @@ h3{
 }
 
 
+
 .container{
     width: 1920px;
 }
+/***********************
 
+    MENU
+
+****************************/
 .menu{
     text-align: center;
     display: flex;
@@ -84,6 +89,31 @@ h3{
     animation-timing-function: ease-in-out;
 }
 
+.menu-mobile{
+    display: none;
+}
+.menu-mobile a:hover svg{
+    fill: var(--highlight-color);
+}
+
+
+
+.menu-mobile .header{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.menu-mobile .header .logo{
+    flex-grow: 2;
+    text-align: center;
+}
+
+
+
 
 .main-video{
     margin-top: 250px;
@@ -91,7 +121,8 @@ h3{
     transform: skewY(-10deg);
     background-color: red;
     overflow: hidden;
-    height: 700px;
+    height: 500px;
+    margin-bottom: 150px;
 }
 
 .main-video .video{
@@ -100,7 +131,17 @@ h3{
 }
 
 .main-video .video video{
+    margin-top: -100px;
     width: 100%;
+}
+
+
+.intro{
+    text-align: center;
+    width: 320px;
+    margin: 0 auto;
+    margin-top: -100px;
+    padding-bottom: 100px;
 }
 
 .about{
@@ -112,7 +153,7 @@ h3{
 
 
 .work{
-    margin-top: 250px;
+    padding-top: 150px;
     transform-origin: 0 0;
     transform: skewY(-10deg);
 }
@@ -123,50 +164,41 @@ h3{
 }
 
 .grid .item{
+    padding: 0;
+    position: relative;
     overflow: hidden;
     height: 300px;
 }
-
-.grid .item .image{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
 .grid .item img{
-    width: 100%;
-    transform: skewY(10deg) scale(1.4,1.4);
+    width: 101%;
+    margin-top: -60px;
+    transform: skewY(10deg) scale(1,1);
     transition: all 0.075s;    
 }
 
 .grid .item:hover img{
-    transform: skewY(10deg) scale(1.6,1.6);
-}
-.grid .item .bg-hover{
-    transform: skewY(10deg) scale(1,1);
-    height: 400px;
-}
-.grid .item:hover .bg-hover{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    opacity: 1;
+    transform: skewY(10deg) scale(1.2,1.2);
 }
 
 .grid .item .bg-hover{
     background-color: rgba(0,0,0,0.7);
     width: 100%;
-    height: 400px;
+    height: 150%;
     display: grid;
-    position: relative;
+    position: absolute;
     z-index: 2;
-    top:-150%;
+    top:-25%;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-    transform: skewY(10deg) scale(1.5,1.5);
+    transform: skewY(10deg) scale(1,1);
     justify-items: center;
     align-items: center;
     text-align: center;
+}
+
+.grid .item:hover .bg-hover{
+    overflow: hidden;
+    opacity: 1;
 }
 
 .grid .item:hover .bg-hover .info{
@@ -249,9 +281,6 @@ h3{
     margin: 0 auto;
 }
 
-.contact .contact-container .columns div{
-    width: 33%;
-}
 
 
 .contact .contact-container h3{
@@ -264,6 +293,10 @@ h3{
 .contact .contact-container .social{
     text-align: center;
 }
+.contact .contact-container .social a:hover path{
+    fill: var(--highlight-color);
+}
+
 .footer{
     background-color: black;
     height: 450px;
@@ -274,6 +307,10 @@ h3{
     display: flex;
     justify-content: space-between;
     gap: 20px;
+}
+
+.menu-mobile-closed{
+    display: none;
 }
 
 
@@ -318,9 +355,22 @@ h3{
     100% {transform: translateY(0);} 
 }
 
+@media (max-width: 1450px) {
+    .grid .item{
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+        height: 250px;
+    }
+
+    .main-video{;
+        height: 600px;
+    }
+}
+
 @media (max-width: 1280px) {
 
-    .container{
+    .main-container{
         width: 100%;
     }
 
@@ -332,21 +382,35 @@ h3{
         font-size: 1.5em;
     }
 
+    .main-video{;
+        height: 400px;
+    }
+
     .grid{
         display: grid; 
         grid-template-columns: 1fr 1fr 1fr; 
-        grid-template-rows: 1fr 1fr 1fr 1fr; 
         gap: 0px 0px; 
     }
 
     .grid .item{
+        padding: 0;
+        position: relative;
+        overflow: hidden;
         height: 200px;
     }
 
-    .grid .item .bg-hover{
-        top: -150%;
-        height: 100%;
+    .contact .contact-container{
+        width: 90%;
+        margin: 0 auto;
     }
+}
+
+@media (max-width: 900px) {
+    
+    .grid .item{
+        height: 150px;
+    }
+
 }
 
 @media (max-width: 800px) {
@@ -358,22 +422,80 @@ h3{
         font-size: 1.2em;
     }
 
-    .grid{
-        display: grid; 
-        grid-template-columns: 1fr 1fr; 
-        gap: 0px 0px; 
+    .main-video{;
+        height: 200px;
+    }
+
+    .main-video .video video{
+        margin-top: 0;
     }
 
     .grid .item{
-        height: 200px;
+        height: 170px;
+    }
+
+    .grid{
+        grid-template-columns: 1fr 1fr; 
+    }
+
+    .columns{
+        flex-direction: column; 
+        gap: 0;
+    }
+
+    .columns div{
+        width: 100%;
+        text-align: center;
+    }
+
+    .contact .contact-container .emails{
+        text-align: center;
     }
 }
 
 @media (max-width: 540px) {
 
+    .menu{
+        display: none;
+    }
+    
+
+    .menu-mobile{
+        display: block;
+    }
+
+    .menu-mobile ul{
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;   
+    }
+
+    .menu-mobile ul li{
+        text-align: center;
+    }
+    .menu-mobile ul li a{
+        display:block;
+        padding: 20px 0;
+    }
+
+    .main-video{
+        margin-top: 100px;
+    }
+
+    .grid .item{
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+        height: 200px;
+    }
     .grid{
         display: grid; 
         grid-template-columns: 1fr; 
         gap: 0px 0px; 
+    }
+
+    .main-video{
+        height: 150px;
     }
 }
