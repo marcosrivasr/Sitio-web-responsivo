@@ -239,6 +239,11 @@ h3{
     display: block;
 }
 
+#details-container .items{
+    width: 60%;
+    margin: 0 auto;
+}
+
 #details-container .items .item .main-image img{
     width: 100%;
 }
@@ -411,6 +416,10 @@ h3{
         height: 150px;
     }
 
+    #details-container .items{
+        width: 100%;
+    }
+
 }
 
 @media (max-width: 800px) {
@@ -451,6 +460,8 @@ h3{
     .contact .contact-container .emails{
         text-align: center;
     }
+
+    
 }
 
 @media (max-width: 540px) {
