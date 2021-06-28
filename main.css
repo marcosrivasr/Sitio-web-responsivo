@@ -4,29 +4,34 @@
     --highlight-color: #FF8DAC;
 }
 
-
 *{
     font-size: 16px;
-    
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 body{
     background-color: var(--background-color);
-    font-family: 'Work Sans',Arial, Helvetica, sans-serif;
+    font-family: 'Work Sans', Arial, Helvetica, sans-serif;
     line-height: 2;
     padding: 0;
     margin: 0;
-
 }
-::-moz-selection {  background-color: var(--highlight-color);  }
 
-::selection {   background-color: var(--highlight-color);  }
+:-moz-selection{
+    background-color: var(--highlight-color);
+}
+::selection{
+    background-color: var(--highlight-color);
+}
 
 a{
-    color: var(--primary-color);
-    text-decoration: none;
-    padding: 10px;
-    transition: color 0.2s ease-in-out;
+  color: var(--primary-color);
+  text-decoration: none;
+  padding: 10px;
+  transition: color 0.2s ease-in-out
 }
 
 a:hover{
@@ -34,7 +39,7 @@ a:hover{
 }
 
 h2, h3{
-    font-family: 'Barlow Condensed';
+    font-family: 'Barlow Condensed', Arial, Helvetica, sans-serif;
 }
 
 h2{
@@ -44,18 +49,17 @@ h2{
 
 h3{
     font-size: 1.5rem;
+    text-align: center;
 }
-
-
 
 .container{
     width: 1920px;
 }
-/***********************
 
-    MENU
+/*
+              MENU
+**/
 
-****************************/
 .menu{
     text-align: center;
     display: flex;
@@ -74,13 +78,21 @@ h3{
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content:center;
+    justify-content: center;
     gap: 30px;
 }
 
+.menu ul li{
+    animation-name: opening-logo;
+    animation-duration: 1.4s;
+    animation-timing-function: ease-in-out;
+}
+
 .menu a{
-    font-family: 'Barlow Condensed';
-    font-size: 1.7em;
+    font-family: 'barlow Condensed';
+    font-size: 1.7rem;
+
+    
 }
 
 .menu .logo img{
@@ -92,11 +104,10 @@ h3{
 .menu-mobile{
     display: none;
 }
+
 .menu-mobile a:hover svg{
     fill: var(--highlight-color);
 }
-
-
 
 .menu-mobile .header{
     display: flex;
@@ -112,14 +123,41 @@ h3{
     text-align: center;
 }
 
+.menu-mobile .header .logo img{
+    width: 64px;
 
+    animation-name: opening-logo;
+    animation-duration: 1.6s;
+    animation-timing-function: ease-in-out;
+}
 
+.menu-mobile ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-mobile ul li{
+    text-align: center;
+}
+
+.menu-mobile ul li a{
+    display: block;
+    padding: 10px 0;
+}
+
+.menu-mobile-closed{
+    display: none;
+}
+/*
+              MAIN VIDEO
+**/
 
 .main-video{
     margin-top: 250px;
     transform-origin: 0 0;
     transform: skewY(-10deg);
-    background-color: red;
     overflow: hidden;
     height: 500px;
     margin-bottom: 150px;
@@ -127,7 +165,7 @@ h3{
 
 .main-video .video{
     overflow: hidden;
-    transform: skewY(10deg) scale(1.4,1.4);
+    transform: skewY(10deg) scale(1.4, 1.4);
 }
 
 .main-video .video video{
@@ -135,6 +173,9 @@ h3{
     width: 100%;
 }
 
+/*
+              INTRO
+**/
 
 .intro{
     text-align: center;
@@ -144,23 +185,20 @@ h3{
     padding-bottom: 100px;
 }
 
-.about{
-    width: 50%;
-    text-align: center;
-    margin: 0 auto;
-    padding-bottom: 150px;
-}
-
+/*
+              WORK
+**/
 
 .work{
     padding-top: 150px;
     transform-origin: 0 0;
     transform: skewY(-10deg);
 }
+
 .grid{
-    display: grid; 
-    grid-template-columns: 1fr 1fr 1fr; 
-    gap: 0px 0px; 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
 }
 
 .grid .item{
@@ -168,16 +206,18 @@ h3{
     position: relative;
     overflow: hidden;
     height: 300px;
+    
 }
+
 .grid .item img{
     width: 101%;
     margin-top: -60px;
-    transform: skewY(10deg) scale(1,1);
-    transition: all 0.075s;    
+    transform: skewY(10deg) scale(1.2,1.2);
+    transition: all 0.075s;
 }
 
 .grid .item:hover img{
-    transform: skewY(10deg) scale(1.2,1.2);
+    transform: skewY(10deg) scale(1.4,1.4);
 }
 
 .grid .item .bg-hover{
@@ -187,7 +227,7 @@ h3{
     display: grid;
     position: absolute;
     z-index: 2;
-    top:-25%;
+    top: -25%;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     transform: skewY(10deg) scale(1,1);
@@ -214,16 +254,87 @@ h3{
     color: var(--background-color);
 }
 
+.about{
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 150px;
+}
+
+.columns{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.contact{
+    background-color: #000;
+    padding-top: 150px;
+    color: white;
+    transform: skewY(-10deg);
+}
+
+.contact .contact-container{
+    transform: skewY(10deg);
+    color: var(--background-color);
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.contact .contact-container h3{
+    color: white;
+}
+
+.contact .contact-container .emails{
+    text-align: right;
+}
+
+.contact .contact-container .emails h3{
+    text-align: right;
+}
+
+.contact .contact-container .location h3{
+    text-align: left;
+}
+
+.contact .contact-container .social{
+    text-align: center;
+}
+
+.contact .contact-container .social a:hover path{
+    fill: var(--highlight-color);
+}
+
+footer{
+    background-color: #000;
+    height: 450px;
+    margin-top: -170px;
+}
+
+#screen{
+    background-color:var(--highlight-color);
+    position: fixed;
+    z-index: 100;
+    top: -280px;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    transform: skewY(-10deg);
+    transition: all 0.45s;
+    animation-timing-function: lineal;
+    animation-duration: 2s;
+}
+
 #details-container{
     background-color: var(--background-color);
     position: fixed;
-    top: 0;
+    top:0;
     left: 0;
-    height: 100%;
     width: 100%;
+    height: 100%;
     z-index: 10;
-    display: none;
     overflow: auto;
+    display: none;
 }
 
 #details-container .nav-bar{
@@ -234,9 +345,6 @@ h3{
 
 .item-hide{
     display: none;
-}
-.item-show{
-    display: block;
 }
 
 #details-container .items{
@@ -252,97 +360,8 @@ h3{
     text-align: center;
 }
 
-#details-container .items .item .description{
-    
-}
 
 
-
-#screen{
-    background-color: var(--highlight-color);
-    position: fixed;
-    z-index: 100;
-    top:-280px;
-    left: 0;
-    width: 100vw;
-    height: 10vh;
-    transform: skewY(-10deg);
-    transition: all 0.4s;
-    animation-timing-function: linear;
-    animation-duration: 2s;
-}
-
-.contact{
-    background-color: #000;
-    padding-top: 150px;
-    color: white;
-    transform: skewY(-10deg);
-}
-
-.contact .contact-container{
-    color: var(--background-color);
-    transform: skewY(10deg);
-    width: 1280px;
-    margin: 0 auto;
-}
-
-
-
-.contact .contact-container h3{
-    color: white;
-}
-
-.contact .contact-container .emails{
-    text-align: right;
-}
-.contact .contact-container .social{
-    text-align: center;
-}
-.contact .contact-container .social a:hover path{
-    fill: var(--highlight-color);
-}
-
-.footer{
-    background-color: black;
-    height: 450px;
-    margin-top: -170px;
-}
-
-.columns{
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.menu-mobile-closed{
-    display: none;
-}
-
-
-
-@keyframes opening-hero{
-    0%{
-        clip-path: polygon(0% 40%, 100% 0%, 100% 1%, 0% 41%);
-    }
-
-    100%{
-        clip-path: polygon(0% 40%, 100% 0%, 100% 60%, 0% 100%);
-    }
-}
-@keyframes fade-in{
-    0%{
-        height: 0vh;
-    }
-
-    50%{
-        height: 150vh;
-    }
-
-    100%{
-        height: 0vh;
-    }
-
-}
 
 @keyframes opening-logo{
     0%{
@@ -357,80 +376,67 @@ h3{
 @keyframes bounce{
     0% {transform: translateY(500px);}
     80% {transform: translateY(-30px);}
-    100% {transform: translateY(0);} 
+    100% {transform: translateY(0);}
 }
 
-@media (max-width: 1450px) {
+@keyframes fade-in{
+    0%{height: 0vh;}
+    50%{height: 150vh;}
+    100%{height: 0vh;}
+}
+
+
+
+@media (max-width: 1450px){
+    .main-video{;
+        height: 600px;
+    }
+
     .grid .item{
         padding: 0;
         position: relative;
         overflow: hidden;
         height: 250px;
     }
-
-    .main-video{;
-        height: 600px;
-    }
 }
 
-@media (max-width: 1280px) {
-
-    .main-container{
-        width: 100%;
-    }
-
-    .menu{
-        width: 75%;
-    }
-
-    .menu a{
-        font-size: 1.5em;
-    }
-
+@media (max-width: 1280px){
     .main-video{;
         height: 400px;
     }
 
     .grid{
-        display: grid; 
         grid-template-columns: 1fr 1fr 1fr; 
-        gap: 0px 0px; 
     }
 
     .grid .item{
-        padding: 0;
-        position: relative;
-        overflow: hidden;
-        height: 200px;
+        height: 150px;
     }
 
     .contact .contact-container{
         width: 90%;
         margin: 0 auto;
+        text-align: center;
+    }
+
+    .contact .contact-container h3{
+        text-align: center !important;
+    }
+    .contact .contact-container .emails{
+        text-align: center;
     }
 }
 
-@media (max-width: 900px) {
-    
+@media (max-width: 900px){
     .grid .item{
         height: 150px;
     }
-
-    #details-container .items{
-        width: 100%;
+    .grid{
+        grid-template-columns: 1fr 1fr; 
     }
-
 }
 
-@media (max-width: 800px) {
-    .menu{
-        width: 100%;
-    }
-
-    .menu a{
-        font-size: 1.2em;
-    }
-
+@media (max-width: 800px){
     .main-video{;
         height: 200px;
     }
@@ -440,8 +446,9 @@ h3{
     }
 
     .grid .item{
-        height: 170px;
+        height: 150px;
     }
+
 
     .grid{
         grid-template-columns: 1fr 1fr; 
@@ -456,57 +463,31 @@ h3{
         width: 100%;
         text-align: center;
     }
-
-    .contact .contact-container .emails{
-        text-align: center;
-    }
-
-    
 }
 
-@media (max-width: 540px) {
 
+@media (max-width: 540px){
     .menu{
         display: none;
     }
-    
-
     .menu-mobile{
         display: block;
     }
 
-    .menu-mobile ul{
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;   
+    .main-video .video video{
+        margin-top: 0;
     }
-
-    .menu-mobile ul li{
-        text-align: center;
-    }
-    .menu-mobile ul li a{
-        display:block;
-        padding: 20px 0;
-    }
+    
 
     .main-video{
         margin-top: 100px;
+        height: 150px;
     }
 
     .grid .item{
-        padding: 0;
-        position: relative;
-        overflow: hidden;
         height: 200px;
     }
     .grid{
-        display: grid; 
         grid-template-columns: 1fr; 
-        gap: 0px 0px; 
-    }
-
-    .main-video{
-        height: 150px;
     }
 }
